@@ -3,8 +3,10 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import random
 
+fireFoxOptions = webdriver.FirefoxOptions()
+fireFoxOptions.set_headless()
+#browser = webdriver.Firefox(firefox_options=fireFoxOptions)
 browser = webdriver.Firefox()
-
 
 def login_action(my_username, my_password):
     browser.get('https://www.instagram.com')
@@ -25,11 +27,11 @@ def login_action(my_username, my_password):
 
     login_button = browser.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]/button")
     login_button.click()
+    time.sleep(2)
     print ('Giris yapildi!')
 
-    pass
 
-def like_by_tags(tagList, commentList, likePercent, commentAdd):
+def like_by_tags(tagList, commentList, likePercent, commentAdd, followUser):
     
     time.sleep(2)
     for tag in tagList:
@@ -44,6 +46,7 @@ def like_by_tags(tagList, commentList, likePercent, commentAdd):
                 locate_post_permalink = browser.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div/div["
                                  + str(post_loc_sub2) + "]/div[" + str(post_loc_sub1) + "]/a")
                 post_permalink = locate_post_permalink.get_attribute('href')
+                print('=====================================')
                 print(post_permalink, 'Adresine gidiliyor...')
                 browser.get(post_permalink)
 
@@ -61,6 +64,13 @@ def like_by_tags(tagList, commentList, likePercent, commentAdd):
                         locate_like_button = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/div[1]/article/div[3]/section[1]/span[1]/button")
                         locate_like_button.click()
                         print ('Post begenildi!')
+                        
+                        if followUser==True:
+                            locate_follow_button = browser.find_element_by_xpath("/html/body/div[1]/section/main/div/div[1]/article/header/div[2]/div[1]/div[2]/button")
+                            locate_follow_button.click()
+                            time.sleep(2)
+                            print('Kullanici takip edildi')
+                        else: pass
 
                         if commentAdd==True:
 
@@ -91,3 +101,4 @@ def like_by_tags(tagList, commentList, likePercent, commentAdd):
                 browser.back()
                 post_permalink = "clear"
                 time.sleep(2)
+    browser.quit()

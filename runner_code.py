@@ -10,4 +10,4 @@ functions_myinsta.login_action(my_username, my_password)
 # Go to https://www.instagram.com/tags/ and loop through tags and like posts
 tagList = ["coffeeaddict", "morningcoffee", "espresso"]
 commentList = ["Great!", "Can't start my day without coffee, really.", "Nice post :)", "Great post!", "good work!", "we need sustainable coffee production, otherwise what we'd do?"]
-functions_myinsta.like_by_tags(tagList, commentList, likePercent=35, commentAdd=True)   
+functions_myinsta.like_by_tags(tagList, commentList, likePercent=35, commentAdd=True, followUser=True)   
