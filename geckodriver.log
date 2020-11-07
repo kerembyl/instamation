@@ -1423,3 +1423,10 @@ ionette	INFO	Stopped listening on port 55116
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1604781067372	geckodriver	INFO	Listening on 127.0.0.1:55458
+1604781070521	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Kerem\\AppData\\Local\\Temp\\rust_mozprofileIsyMfW"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1604781084369	Marionette	INFO	Listening on port 55468
+1604781084912	Marionette	WARN	TLS certificate errors will be ignored for this session
